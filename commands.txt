@@ -1,0 +1,214 @@
+==================================================
+MYPROJECT — DEVOPS COMMAND CHEAT SHEET
+==================================================
+
+
+========================
+POWERSHELL / FILE COMMANDS
+========================
+
+cd C:\users\welcome\desktop\myproject
+# Go to the project folder
+
+dir
+# List files/folders in the current directory
+
+dir -Force
+# List all files, including hidden files like .dockerignore
+
+ps
+# Show Windows/system processes
+
+Get-Content Dockerfile
+# Display the contents of Dockerfile
+
+Get-Content docker-compose.yml
+# Display the contents of docker-compose.yml
+
+Get-Content .dockerignore
+# Display the contents of .dockerignore
+
+notepad .dockerignore
+# Create/open .dockerignore in Notepad
+
+New-Item .dockerignore -ItemType File
+# Create an empty .dockerignore file
+
+Rename-Item Dockerfile.txt Dockerfile
+# Rename Dockerfile.txt to Dockerfile
+
+
+========================
+GIT
+========================
+
+git init
+# Initialize Git repository
+
+git add server.js
+# Stage server.js
+
+git add .
+# Stage all changed files
+
+git commit -m "Initial commit"
+# Create a Git commit
+
+git branch -M main
+# Rename current branch to main
+
+git remote -v
+# Check GitHub remote
+
+git remote add origin https://github.com/abhibatra24/myproject.git
+# Connect local project to GitHub
+
+git config --global user.name "abhibatra24"
+# Set Git username
+
+git config --global user.email "batrabhi24@gmail.com"
+# Set Git email
+
+git commit --amend --reset-author --no-edit
+# Correct the author of the latest commit
+
+git push -u origin main
+# Push main branch to GitHub
+
+git push --force-with-lease
+# Safely force-update the remote branch after rewriting the latest commit
+
+
+========================
+DOCKER — BASIC
+========================
+
+docker --version
+# Check Docker version
+
+docker ps
+# Show currently running Docker containers
+
+docker images
+# Show Docker images stored locally
+
+docker build -t myproject .
+# Build a Docker image from the Dockerfile
+# -t = give the image a name/tag
+# . = current directory is the build context
+
+docker run -d -p 3000:3000 --name myproject-container myproject:latest
+# Create and run a container
+# -d = detached/background mode
+# -p = map host port to container port
+# --name = give container a name
+
+docker stop myproject-container
+# Stop the container
+
+docker rm myproject-container
+# Remove the container
+
+
+========================
+DOCKER COMPOSE
+========================
+
+docker compose config
+# Validate and display the resolved Compose configuration
+
+docker compose up -d --build
+# Build the image and start the Compose service
+# -d = background mode
+# --build = rebuild image before starting
+
+docker compose up -d
+# Start the Compose service in background
+
+docker compose ps
+# Show containers managed by Docker Compose
+
+docker compose logs
+# Show logs from Compose services
+
+docker compose restart
+# Restart Compose services
+
+docker compose down
+# Stop and remove Compose containers and network
+
+
+========================
+IMPORTANT DOCKER CONCEPTS
+========================
+
+Dockerfile
+# Instructions for building a Docker image
+
+Docker Image
+# Blueprint/package used to create containers
+
+Docker Container
+# Running instance of a Docker image
+
+docker-compose.yml
+# Configuration describing how services/containers should run
+
+.dockerignore
+# Files/folders Docker should ignore during build
+
+.gitignore
+# Files/folders Git should ignore
+
+
+========================
+OUR CURRENT PROJECT FLOW
+========================
+
+server.js
+    ↓
+Dockerfile
+    ↓
+Docker Image
+    ↓
+docker-compose.yml
+    ↓
+Docker Container
+    ↓
+localhost:3000
+
+
+========================
+IMPORTANT PORT CONCEPT
+========================
+
+3000:3000
+
+HOST PORT : CONTAINER PORT
+
+Windows PC port 3000
+        ↓
+Docker container port 3000
+
+
+========================
+DOCKER VS POWERSHELL
+========================
+
+ps
+# Windows/system processes
+
+docker ps
+# Running Docker containers
+
+
+========================
+CURRENT PROJECT FILES
+========================
+
+server.js
+Dockerfile
+docker-compose.yml
+.dockerignore
+.gitignore
+commands.txt

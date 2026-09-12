@@ -8,10 +8,11 @@ const server = http.createServer((req, res) => {
     res.end(`
         <html>
             <head>
+                <meta charset="UTF-8">
                 <title>DevOps Status App</title>
             </head>
             <body>
-                <h1>🚀 DevOps Status App</h1>
+                <h1> DevOps Status App</h1>
                 <p>Application is running successfully!</p>
                 <p>Environment: Development</p>
             </body>
